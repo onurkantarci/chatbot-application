@@ -1,0 +1,64 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.input-button-wrapper {
+  display: flex;
+}
+
+.name-input {
+  width: 400px;
+  padding: 15px;
+  border: 2px solid #009688;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: #00796b;
+  box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
+}
+
+.submit-btn {
+  padding: 10px 15px;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #009688;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  height: 57px;
+  box-sizing: border-box;
+}
+
+.submit-btn:hover {
+  background-color: #00796b;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
