@@ -3,6 +3,11 @@ import { Document } from 'mongoose';
 
 export type SessionDocument = Session & Document;
 
+export interface Message {
+  role: string;
+  content: string;
+}
+
 @Schema()
 export class Session {
   @Prop({ required: true })
@@ -13,6 +18,9 @@ export class Session {
 
   @Prop({ required: false })
   endTime: Date;
+
+  @Prop({ default: [] })
+  messages: Message[];
 }
 
 export const SessionSchema = SchemaFactory.createForClass(Session);
