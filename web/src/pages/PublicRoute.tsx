@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import "../styles/PrivateRoute.css";
+import "../styles/PublicRoute.css";
 import SessionService from "../services/session.service";
 
-interface PrivateRouteProps {
+interface PublicRouteProps {
   element: JSX.Element;
 }
 
-const PrivateRoute = ({ element }: PrivateRouteProps) => {
+const PublicRoute = ({ element }: PublicRouteProps) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -15,11 +15,7 @@ const PrivateRoute = ({ element }: PrivateRouteProps) => {
       try {
         const response = await SessionService.checkSession();
 
-        if (response.ok) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-        }
+        setIsAuthenticated(response.ok);
       } catch (error) {
         console.error("Error checking session:", error);
         setIsAuthenticated(false);
@@ -38,7 +34,7 @@ const PrivateRoute = ({ element }: PrivateRouteProps) => {
     );
   }
 
-  return isAuthenticated ? element : <Navigate to="/" />;
+  return isAuthenticated ? <Navigate to="/chat" /> : element;
 };
 
-export default PrivateRoute;
+export default PublicRoute;
